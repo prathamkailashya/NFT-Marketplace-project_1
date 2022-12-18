@@ -120,7 +120,7 @@ describe("NFTMarketplace", function () {
       // fetch items total price (market fees + item price)
       totalPriceInWei = await marketplace.getTotalPrice(1);
       // addr 2 purchases item.
-      await expect(marketplace.connect(addr2).purchaseItem(1, {value: totalPriceInWei}))
+      await expect(marketplace.connect(addr2).purchaseItem(1, {value: totalPriceInWei})) //metadata object as the last argument
       .to.emit(marketplace, "Bought")
         .withArgs(
           1,
