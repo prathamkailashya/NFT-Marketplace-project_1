@@ -9,7 +9,7 @@ export default function MyPurchases({ marketplace, nft, account }) {
     // Fetch purchased items from marketplace by quering Offered events with the buyer set as the user
     const filter =  marketplace.filters.Bought(null,null,null,null,null,account)
     const results = await marketplace.queryFilter(filter)
-    //Fetch metadata of each nft and add that to listedItem object.
+    //Fetch metadata of each nft and add that to listedItem object
     const purchases = await Promise.all(results.map(async i => {
       // fetch arguments from each result
       i = i.args
@@ -59,7 +59,7 @@ export default function MyPurchases({ marketplace, nft, account }) {
         </div>
         : (
           <main style={{ padding: "1rem 0" }}>
-            <h2>No purchases</h2>
+            <h2>No purchases.</h2>
           </main>
         )}
     </div>

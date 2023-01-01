@@ -18,7 +18,7 @@ const Create = ({ marketplace, nft }) => {
         console.log(result)
         setImage(`https://ipfs.infura.io/ipfs/${result.path}`)
       } catch (error){
-        console.log("ipfs image upload error: ", error)
+        console.log("IPFS image upload error: ", error)
       }
     }
   }
@@ -32,7 +32,7 @@ const Create = ({ marketplace, nft }) => {
     }
   }
   const mintThenList = async (result) => {
-    const uri = `https://ipfs.infura.io/ipfs/${result.path}`
+    const uri = `https://ipfs.infura.io/ipfs/${result.path}` //IPFS for nft store
     // mint nft 
     await(await nft.mint(uri)).wait()
     // get tokenId of new nft 
@@ -60,7 +60,7 @@ const Create = ({ marketplace, nft }) => {
               <Form.Control onChange={(e) => setPrice(e.target.value)} size="lg" required type="number" placeholder="Price in ETH" />
               <div className="d-grid px-0">
                 <Button onClick={createNFT} variant="primary" size="lg">
-                  Create & List NFT!
+                  Create & List NFT!!
                 </Button>
               </div>
             </Row>

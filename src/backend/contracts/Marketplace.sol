@@ -63,7 +63,7 @@ contract Marketplace is ReentrancyGuard {
             payable(msg.sender),
             false
         );
-        // emit Offered event
+        // emit Offered event-
         emit Offered(
             itemCount,
             address(_nft),
@@ -79,7 +79,7 @@ contract Marketplace is ReentrancyGuard {
         require(_itemId > 0 && _itemId <= itemCount, "item doesn't exist");
         require(msg.value >= _totalPrice, "not enough ether to cover item price and market fee");
         require(!item.sold, "item already sold");
-        // pay seller and feeAccount
+        // pay seller and feeAccount.
         item.seller.transfer(item.price);
         feeAccount.transfer(_totalPrice - item.price);
         // update item to sold

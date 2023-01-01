@@ -151,7 +151,7 @@ describe("NFTMarketplace", function () {
       ).to.be.revertedWith("item doesn't exist");
       // Fails when not enough ether is paid with the transaction. 
       // In this instance, fails when buyer only sends enough ether to cover the price of the nft
-      // not the additional market fee.
+      // not additional market fee.
       await expect(
         marketplace.connect(addr2).purchaseItem(1, {value: toWei(price)})
       ).to.be.revertedWith("not enough ether to cover item price and market fee"); 
